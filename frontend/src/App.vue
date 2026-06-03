@@ -167,7 +167,7 @@
               <Pizza class="kpi-icon-svg" />
             </div>
             <div class="kpi-content">
-              <h3>Optimal Production</h3>
+              <h3>Produção Ótima</h3>
               <p class="kpi-value">{{ optimizeProductionTotal.toFixed(0) }}</p>
             </div>
           </div>
@@ -176,7 +176,7 @@
               <DollarSign class="kpi-icon-svg" />
             </div>
             <div class="kpi-content">
-              <h3>Estimated Profit</h3>
+              <h3>Lucro Estimado</h3>
               <p class="kpi-value">${{ optimizeResult.total_profit.toFixed(2) }}</p>
             </div>
           </div>
@@ -185,7 +185,7 @@
               <AlertTriangle class="kpi-icon-svg" />
             </div>
             <div class="kpi-content">
-              <h3>Inventory Status</h3>
+              <h3>Gargalo do Estoque</h3>
               <p class="kpi-value" style="font-size:1rem; line-height:1.4;">{{ optimizationInventoryStatus }}</p>
             </div>
           </div>
@@ -194,7 +194,7 @@
               <Activity class="kpi-icon-svg" />
             </div>
             <div class="kpi-content">
-              <h3>Inventory Usage</h3>
+              <h3>Uso do Estoque</h3>
               <p class="kpi-value">{{ optimizeInventoryUsage.toFixed(1) }}%</p>
             </div>
           </div>
