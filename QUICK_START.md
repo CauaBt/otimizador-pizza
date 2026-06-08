@@ -13,7 +13,7 @@ Automatically calculates **the exact number of each pizza to produce** to make t
    - Example: Mozzarella pizza = 0.5 kg flour + 0.3 kg cheese + 0.2 kg sauce 
 
 3. **Profit Per Pizza** (how much you make per sale)
-   - Example: Mozzarella = $12, Pepperoni = $15
+   - Example: Mozzarella = $20, Pepperoni = $25
 
 ## Output: Your Optimal Production Plan
 
@@ -71,8 +71,8 @@ Send a POST request to `http://localhost:5000/api/solve`:
     }
   },
   "profits": {
-    "mozzarella": 12.0,
-    "pepperoni": 15.0
+    "mozzarella": 20.0,
+    "pepperoni": 25.0
   }
 }
 ```

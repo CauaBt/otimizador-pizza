@@ -25,10 +25,10 @@ Sauce:      160 kg
 
 **What you make:**
 ```
-Mozzarella Pizza: $12 profit
+Mozzarella Pizza: $20 profit
   Requires: 0.5 kg flour + 0.3 kg cheese + 0.2 kg sauce 
   
-Pepperoni Pizza: $15 profit
+Pepperoni Pizza: $25 profit
   Requires: 0.5 kg flour + 0.2 kg cheese + 0.2 kg sauce 
 ```
 
@@ -47,8 +47,8 @@ Pepperoni Pizza: $15 profit
     "pepperoni": {"flour": 0.5, "cheese": 0.2, "sauce": 0.2}
   },
   "profits": {
-    "mozzarella": 12.0,
-    "pepperoni": 15.0
+    "mozzarella": 20.0,
+    "pepperoni": 25.0
   }
 }
 ```
@@ -74,7 +74,7 @@ INGREDIENT USAGE:
 **Decision:** Produce **250 Pepperoni pizzas**
 
 **Why?**
-1. ✅ **Higher profit:** $15/pizza vs $12/pizza = 25% more profit per pizza
+1. ✅ **Higher profit:** $25/pizza vs $20/pizza = 25% more profit per pizza
 2. ✅ **Uses less cheese:** Only 0.2 kg vs 0.3 kg
 3. ✅ **Maximizes total profit:** $3,750 vs $2,000 (if you made Mozzarella instead)
 

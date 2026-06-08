@@ -402,8 +402,8 @@ export default {
 
     // Profit per unit of pizza
     const profits = reactive({
-      pizza1: 12.00,
-      pizza2: 15.00
+      pizza1: 20.00,
+      pizza2: 25.00
     });
 
     const simProfit = computed(() => {

@@ -53,7 +53,7 @@ All 6 core tests **PASSED**:
 INPUT:
   Inventory: 150 kg flour, 50 kg cheese, 160 kg sauce
   Recipes: Mozzarella (simple), Pepperoni (higher profit)
-  Prices: Mozzarella $12, Pepperoni $15
+  Prices: Mozzarella $20, Pepperoni $25
 
 OUTPUT:
   ✅ Produce: 250 Pepperoni pizzas
@@ -144,7 +144,7 @@ curl -X POST http://localhost:5000/api/solve \
     "mode": "optimize",
     "stocks": {"flour": 150, "cheese": 50, ...},
     "recipes": {"pizza1": {"flour": 0.5, ...}, ...},
-    "profits": {"pizza1": 12.0, ...}
+    "profits": {"pizza1": 20.0, ...}
   }'
 ```
 

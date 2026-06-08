@@ -52,8 +52,8 @@ Solves the pizza production optimization problem.
     }
   },
   "profits": {
-    "pizza_type_1": 12.0,
-    "pizza_type_2": 15.0
+    "pizza_type_1": 20.0,
+    "pizza_type_2": 25.0
   }
 }
 ```
@@ -171,8 +171,8 @@ curl -X POST http://localhost:5000/api/solve \
       }
     },
     "profits": {
-      "mozzarella": 12.0,
-      "pepperoni": 15.0
+      "mozzarella": 20.0,
+      "pepperoni": 25.0
     }
   }'
 ```
@@ -312,8 +312,8 @@ async function optimizePizzaProduction() {
       }
     },
     profits: {
-      "mozzarella": 12.0,
-      "pepperoni": 15.0
+      "mozzarella": 20.0,
+      "pepperoni": 25.0
     }
   };
   

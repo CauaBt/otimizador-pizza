@@ -36,13 +36,13 @@ def solve():
             result = solve_1d(
                 stocks=clean_stocks,
                 recipe=clean_recipes.get('pizza1', {}),
-                profit=clean_profits.get('pizza1', 12.0)
+                profit=clean_profits.get('pizza1', 20.0)
             )
         elif mode == 'pizza2':
             result = solve_1d(
                 stocks=clean_stocks,
                 recipe=clean_recipes.get('pizza2', {}),
-                profit=clean_profits.get('pizza2', 15.0),
+                profit=clean_profits.get('pizza2', 25.0),
                 pizza_var='x2'
             )
         elif mode == 'mix':

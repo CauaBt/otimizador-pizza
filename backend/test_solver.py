@@ -29,8 +29,8 @@ class TestPizzaSolver(unittest.TestCase):
         
         # Profits
         self.profits = {
-            'pizza1': 12.0,
-            'pizza2': 15.0
+            'pizza1': 20.0,
+            'pizza2': 25.0
         }
 
     def test_case_1_queijo_bottleneck(self):
@@ -43,7 +43,7 @@ class TestPizzaSolver(unittest.TestCase):
         
         self.assertTrue(res['success'])
         self.assertEqual(res['optimal_x1'], 150.0)
-        self.assertEqual(res['total_profit'], 150.0 * 12.0)
+        self.assertEqual(res['total_profit'], 150.0 * 20.0)
         self.assertTrue(res['usage']['queijo']['bottleneck'])
         self.assertEqual(res['usage']['queijo']['percent'], 100.0)
         # Verify other usages are less than 100%
@@ -59,7 +59,7 @@ class TestPizzaSolver(unittest.TestCase):
         
         self.assertTrue(res['success'])
         self.assertEqual(res['optimal_x1'], 150.0)
-        self.assertEqual(res['total_profit'], 150.0 * 12.0)
+        self.assertEqual(res['total_profit'], 150.0 * 20.0)
         self.assertTrue(res['usage']['farinha']['bottleneck'])
         self.assertEqual(res['usage']['farinha']['percent'], 100.0)
         # Verify queijo usage is not bottleneck anymore (uses 150 * 0.3 = 45kg, which is 90% of 50kg)

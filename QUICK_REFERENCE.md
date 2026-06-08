@@ -135,8 +135,8 @@ Project Root/
     "pepperoni": {"flour": 0.5, "cheese": 0.2, "sauce": 0.2}
   },
   "profits": {
-    "mozzarella": 12.0,
-    "pepperoni": 15.0
+    "mozzarella": 20.0,
+    "pepperoni": 25.0
   }
 }
 ```

@@ -64,8 +64,8 @@ Pizza Recipes (per unit):
   Pepperoni: 0.5 flour, 0.2 cheese, 0.2 sauce
 
 Profit per Pizza:
-  Mozzarella: $12
-  Pepperoni: $15 ← HIGHER PROFIT
+  Mozzarella: $20
+  Pepperoni: $25 ← HIGHER PROFIT
 ```
 
 ### Optimizer Decision

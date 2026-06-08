@@ -37,8 +37,8 @@ def example_basic():
     
     # Profit per pizza (in dollars)
     profits = {
-        "Mozzarella": 12.0,
-        "Pepperoni": 15.0
+        "Mozzarella": 20.0,
+        "Pepperoni": 25.0
     }
     
     print("\n📦 INVENTORY:")
@@ -136,10 +136,10 @@ def example_advanced():
     
     # Different profit margins
     profits = {
-        "Classic Mozzarella": 10.0,
-        "Pepperoni Deluxe": 14.0,
-        "Veggie Supreme": 13.0,
-        "Meat Lovers": 16.0,
+        "Classic Mozzarella": 20.0,
+        "Pepperoni Deluxe": 25.0,
+        "Veggie Supreme": 23.0,
+        "Meat Lovers": 26.0,
     }
     
     print("\n📦 INVENTORY:")
@@ -224,6 +224,6 @@ if __name__ == "__main__":
             "pizza1": {"Flour": 0.5, "Cheese": 0.3, ...},
             "pizza2": {...}
         },
-        "profits": {"pizza1": 12.0, "pizza2": 15.0, ...}
+        "profits": {"pizza1": 20.0, "pizza2": 15.0, ...}
     }
     """)

@@ -23,7 +23,7 @@ A aplicação permite ajustar de forma dinâmica o estoque de ingredientes e as 
 ### Função Objetivo
 Maximizar o lucro total:
 $$\text{Max } Z = c_1 x_1 + c_2 x_2$$
-*(Onde $c_1$ e $c_2$ são os lucros individuais de cada pizza. Padrões: $c_1 = \$12,00$, $c_2 = \$15,00$)*
+*(Onde $c_1$ e $c_2$ são os lucros individuais de cada pizza. Padrões: $c_1 = \$20,00$, $c_2 = \$25,00$)*
 
 ### Ingredientes e Restrições de Receita
 As restrições de estoque total são configuradas por sliders e expressas na forma:

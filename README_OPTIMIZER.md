@@ -22,8 +22,8 @@ INPUT:                          OPTIMIZATION                  OUTPUT:
 • Sauce: 160 kg    ────→│ Solver (scipy)      │    • 0 Mozzarella
 • Cheese: 50 kg         └─────────────────────┘    
                                                     💵 Total Profit:
-• Mozzarella: $12 profit                          $3,750
-• Pepperoni: $15 profit                           
+• Mozzarella: $20 profit                          $3,750
+• Pepperoni: $25 profit                           
                                                     ⛔ Bottleneck:
 • Recipes (flour, cheese
   sauce per unit)
@@ -115,8 +115,8 @@ YEARLY DIFFERENCE: $73,365 (without any additional investment!)
     "pepperoni": {"flour": 0.5, "cheese": 0.2, "sauce": 0.2}
   },
   "profits": {
-    "mozzarella": 12.0,
-    "pepperoni": 15.0
+    "mozzarella": 20.0,
+    "pepperoni": 25.0
   }
 }
 ```
@@ -172,7 +172,7 @@ Strategy: Buy more cheese to scale up
 ### Example 1: Basic Case
 ```
 INPUT: 150 kg flour, 50 kg cheese, 160 kg sauce
-PIZZAS: Mozzarella ($12 profit), Pepperoni ($15 profit)
+PIZZAS: Mozzarella ($20 profit), Pepperoni ($25 profit)
 
 OUTPUT:
 ┌─────────────────────────┐

@@ -32,8 +32,8 @@ def test_basic_two_pizza():
     }
     
     profits = {
-        "mozzarella": 12.0,
-        "pepperoni": 15.0
+        "mozzarella": 20.0,
+        "pepperoni": 25.0
     }
     
     result = solve_multivariable(stocks, recipes, profits)
