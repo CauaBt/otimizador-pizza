@@ -37,18 +37,6 @@
             <input type="range" v-model.number="stocks.farinha" min="0" max="500" class="range-slider" />
           </div>
 
-          <!-- Butter (Manteiga) -->
-          <div class="slider-row">
-            <div class="slider-header">
-              <span class="ing-label"><Milk class="ing-icon text-amber" /> Manteiga</span>
-              <div class="input-unit-wrapper">
-                <input type="number" v-model.number="stocks.manteiga" min="0" max="100" class="num-input" />
-                <span class="unit">kg</span>
-              </div>
-            </div>
-            <input type="range" v-model.number="stocks.manteiga" min="0" max="100" class="range-slider" />
-          </div>
-
           <!-- Cheese (Queijo) -->
           <div class="slider-row">
             <div class="slider-header">
@@ -106,10 +94,6 @@
                 <input type="number" step="0.05" v-model.number="recipes.pizza1.farinha" class="num-input recipe-val" /> kg
               </div>
               <div class="recipe-item">
-                <span>Manteiga:</span>
-                <input type="number" step="0.05" v-model.number="recipes.pizza1.manteiga" class="num-input recipe-val" /> kg
-              </div>
-              <div class="recipe-item">
                 <span>Queijo:</span>
                 <input type="number" step="0.05" v-model.number="recipes.pizza1.queijo" class="num-input recipe-val" /> kg
               </div>
@@ -134,10 +118,6 @@
               <div class="recipe-item">
                 <span>Farinha:</span>
                 <input type="number" step="0.05" v-model.number="recipes.pizza2.farinha" class="num-input recipe-val" /> kg
-              </div>
-              <div class="recipe-item">
-                <span>Manteiga:</span>
-                <input type="number" step="0.05" v-model.number="recipes.pizza2.manteiga" class="num-input recipe-val" /> kg
               </div>
               <div class="recipe-item">
                 <span>Queijo:</span>
@@ -351,7 +331,6 @@ import {
   Pizza, 
   Sliders, 
   Wheat, 
-  Milk, 
   Droplets, 
   Beef, 
   DollarSign, 
@@ -366,7 +345,6 @@ export default {
     Pizza,
     Sliders,
     Wheat,
-    Milk,
     Droplets,
     Beef,
     DollarSign,
@@ -401,7 +379,6 @@ export default {
     // Stocks available (initial values)
     const stocks = reactive({
       farinha: 150,
-      manteiga: 25,
       queijo: 50,
       molho: 160,
       calabresa: 30
@@ -411,14 +388,12 @@ export default {
     const recipes = reactive({
       pizza1: { // Muçarela
         farinha: 0.5,
-        manteiga: 0.2,
         queijo: 0.3,
         molho: 0.2,
         calabresa: 0.0
       },
       pizza2: { // Calabresa
         farinha: 0.5,
-        manteiga: 0.2,
         queijo: 0.2,
         molho: 0.2,
         calabresa: 0.15
@@ -664,7 +639,6 @@ export default {
     const getIngIconComponent = (key) => {
       const icons = {
         farinha: 'Wheat',
-        manteiga: 'Milk',
         queijo: 'Pizza',
         molho: 'Droplets',
         calabresa: 'Beef'
@@ -675,7 +649,6 @@ export default {
     const getIngName = (key) => {
       const names = {
         farinha: 'Farinha',
-        manteiga: 'Manteiga',
         queijo: 'Queijo',
         molho: 'Molho de Tomate',
         calabresa: 'Calabresa'

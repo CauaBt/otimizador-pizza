@@ -7,10 +7,10 @@ Automatically calculates **the exact number of each pizza to produce** to make t
 ## Input Requirements
 
 1. **Your Inventory** (what you have)
-   - Example: 150 kg flour, 50 kg cheese, 25 kg butter, 160 kg sauce
+   - Example: 150 kg flour, 50 kg cheese, 160 kg sauce
 
 2. **Pizza Recipes** (what each pizza needs)
-   - Example: Mozzarella pizza = 0.5 kg flour + 0.3 kg cheese + 0.2 kg sauce + 0.2 kg butter
+   - Example: Mozzarella pizza = 0.5 kg flour + 0.3 kg cheese + 0.2 kg sauce 
 
 3. **Profit Per Pizza** (how much you make per sale)
    - Example: Mozzarella = $12, Pepperoni = $15
@@ -38,13 +38,12 @@ python optimize_example.py
 **Output Example:**
 ```
 🎯 PRODUCTION QUANTITIES:
-  Mozzarella          125 pizzas
+  Mozzarella          250 pizzas
   Pepperoni             0 pizzas
 
-💵 TOTAL PROFIT: $1,500.00
+💵 TOTAL PROFIT: $3,750.00
 
 ⛔ BOTTLENECK INGREDIENTS:
-  - Butter
 ```
 
 ### Method 2: Use the Web API
@@ -57,21 +56,18 @@ Send a POST request to `http://localhost:5000/api/solve`:
   "stocks": {
     "flour": 150,
     "cheese": 50,
-    "sauce": 160,
-    "butter": 25
+    "sauce": 160
   },
   "recipes": {
     "mozzarella": {
       "flour": 0.5,
       "cheese": 0.3,
-      "sauce": 0.2,
-      "butter": 0.2
+      "sauce": 0.2
     },
     "pepperoni": {
       "flour": 0.5,
       "cheese": 0.2,
-      "sauce": 0.2,
-      "butter": 0.15
+      "sauce": 0.2
     }
   },
   "profits": {
@@ -86,11 +82,11 @@ Send a POST request to `http://localhost:5000/api/solve`:
 {
   "success": true,
   "production_plan": {
-    "mozzarella": 125.0,
-    "pepperoni": 0.0
+    "mozzarella": 0.0,
+    "pepperoni": 250.0
   },
-  "total_profit": 1500.00,
-  "bottleneck_ingredients": ["butter"],
+  "total_profit": 3750.00,
+  "bottleneck_ingredients": ["cheese"],
   ...
 }
 ```
@@ -101,24 +97,24 @@ Send a POST request to `http://localhost:5000/api/solve`:
 
 ### Production Plan
 Tells you exactly what to make:
-- **125 Mozzarella pizzas** → 125 × $12 = $1,500
+- **125 Mozzarella pizzas** → 125 × $12 = $3,750
 - **0 Pepperoni pizzas** → 0 × $15 = $0
-- **Total Profit: $1,500**
+- **Total Profit: $3,750**
 
 ### Why This Plan?
-- **Butter is the bottleneck** (you only have 25 kg)
-- Both pizzas need 0.2 kg butter
-- 25 kg ÷ 0.2 kg/pizza = 125 pizzas max
+- **Cheese is the bottleneck** (you only have 25 kg)
+- Both pizzas need 0.2 kg cheese
+- 25 kg ÷ 0.2 kg/pizza = 250 pizzas max
 - Mozzarella is chosen because it's produced first in the sorting
 
 ### How to Make More Money?
 
-**Option 1: Get more butter**
-- If you had 40 kg butter → could make different mix
+**Option 1: Get more cheese**
+- If you had 40 kg cheese → could make different mix
 - Might make both pizzas if other ingredients allow
 
 **Option 2: Adjust recipes**
-- Use less butter per pizza
+- use less cheese per pizza
 - Use cheaper ingredients
 
 **Option 3: Change prices**
@@ -136,7 +132,6 @@ Tells you exactly what to make:
 Flour:     500 kg
 Cheese:    200 kg
 Sauce:     400 kg
-Butter:    100 kg
 Pepperoni:  80 kg
 Vegetables: 150 kg
 ```
@@ -170,7 +165,7 @@ TOTAL PROFIT:    $8,500
 ### Bottleneck Ingredient
 - The ingredient limiting your production
 - **At 100% utilization**
-- Example: "You'd make 50% more pizzas if you had 50% more butter"
+- Example: "You'd make 50% more pizzas if you had 50% more cheese"
 
 ### Profit Breakdown
 Shows contribution of each pizza:
@@ -190,7 +185,7 @@ Run optimizer every morning with today's inventory and market prices
 
 ### 2. Purchasing Decisions
 See which ingredient gives the best ROI:
-- If butter is bottleneck → buy more butter
+- If Cheese is bottleneck → buy more cheese
 - If cheese sits unused → don't reorder
 
 ### 3. Menu Pricing
@@ -205,7 +200,7 @@ Plan what ingredients to order:
 
 ### 5. Recipe Optimization
 Test recipe changes:
-- "What if we use 10% less butter?"
+- "What if we use 10% less cheese?"
 - "What if we add premium cheese?"
 - Run optimizer to see impact on profit
 

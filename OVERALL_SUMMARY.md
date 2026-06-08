@@ -41,7 +41,7 @@ A **Linear Programming solver** using scipy.optimize.linprog that:
 
 | # | Test Case | Result | Key Metric |
 |---|-----------|--------|-----------|
-| 1 | 2-Pizza Basic | ✅ | Produced 125 pizzas, $1,875 profit |
+| 1 | 2-Pizza Basic | ✅ | Produced 250 pizzas, $3,750 profit |
 | 2 | 4-Pizza Advanced | ✅ | 713 pizzas, $10,295 profit, 3 bottlenecks |
 | 3 | Single Constraint | ✅ | Exact math: 100 pizzas = $500 profit |
 | 4 | Profit Priority | ✅ | Chose high-profit pizza over low-profit |
@@ -58,11 +58,10 @@ Available Inventory:
   Flour: 150 kg
   Cheese: 50 kg
   Sauce: 160 kg
-  Butter: 25 kg ← LIMITING FACTOR
 
 Pizza Recipes (per unit):
-  Mozzarella: 0.5 flour, 0.3 cheese, 0.2 sauce, 0.2 butter
-  Pepperoni: 0.5 flour, 0.2 cheese, 0.2 sauce, 0.15 butter ← USES LESS BUTTER
+  Mozzarella: 0.5 flour, 0.3 cheese, 0.2 sauce
+  Pepperoni: 0.5 flour, 0.2 cheese, 0.2 sauce
 
 Profit per Pizza:
   Mozzarella: $12
@@ -72,28 +71,27 @@ Profit per Pizza:
 ### Optimizer Decision
 ```
 ✅ OPTIMAL PRODUCTION PLAN
-   Make: 125 Pepperoni pizzas
+   Make: 250 Pepperoni pizzas
    Skip: Mozzarella pizzas
 
 💵 FINANCIAL RESULT
-   Total Profit: $1,875
+   Total Profit: $3,750
    
 📈 INGREDIENT UTILIZATION
-   Butter: 25 kg / 25 kg (100%) ⚠️ BOTTLENECK
-   Cheese: 25 kg / 50 kg (50%)
-   Flour: 62.5 kg / 150 kg (42%)
-   Sauce: 25 kg / 160 kg (16%)
+   Cheese: 50 kg / 50 kg (100%) ⚠️ BOTTLENECK
+   Flour: 125 kg / 150 kg (83.3%)
+   Sauce: 50 kg / 160 kg (31.3%)
 
 💡 INSIGHT
-   To scale production, get more BUTTER
+   To scale production, get more CHEESE
 ```
 
 ### Why This Is Optimal
 1. **Higher profit per pizza:** $15 vs $12 (25% more)
-2. **Uses less butter:** 0.15 kg vs 0.2 kg (butter is limiting)
-3. **Maximizes total profit:** $1,875 vs $1,500 (if made Mozzarella instead)
+2. **Uses less cheese:** 0.2 kg vs 0.3 kg (cheese is limiting)
+3. **Maximizes total profit:** $3,750 vs $2,000 (if made Mozzarella instead: 166 Mozzarella @ $12 = $1,992)
 
-**Value:** Extra $375 profit just from choosing the RIGHT mix!
+**Value:** Extra $1,758 profit just from choosing the RIGHT mix!
 
 ---
 
@@ -228,7 +226,7 @@ console.log(result.total_profit);
 "How much of each ingredient should I order for next week?"
 
 ### Recipe Optimization
-"What if we use 10% less butter? How does that affect profit?"
+"What if we use 10% less cheese? How does that affect profit?"
 
 ### Production Constraints
 "What's limiting my maximum production? What should I reorder?"

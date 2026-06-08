@@ -48,7 +48,7 @@
 - [x] Test 1: Basic 2-pizza optimization
   - Verified: Correct production quantities
   - Verified: Total profit calculated correctly
-  - Verified: Bottleneck identified (butter)
+  - Verified: Bottleneck identified (cheese)
 - [x] Test 2: Advanced 4-pizza optimization
   - Verified: Multi-pizza handling
   - Verified: Multiple bottlenecks detected

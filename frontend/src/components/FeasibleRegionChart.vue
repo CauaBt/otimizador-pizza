@@ -62,7 +62,6 @@ export default {
       // Color palette for the constraint lines (aesthetic glassmorphic matches)
       const lineColors = {
         farinha: '#6366f1',    // Indigo
-        manteiga: '#f59e0b',   // Amber
         queijo: '#ec4899',     // Pink
         molho: '#3b82f6',      // Blue
         calabresa: '#ef4444'   // Red
@@ -70,7 +69,6 @@ export default {
 
       const ingredientNamesPt = {
         farinha: 'Farinha',
-        manteiga: 'Manteiga',
         queijo: 'Queijo',
         molho: 'Molho',
         calabresa: 'Calabresa'

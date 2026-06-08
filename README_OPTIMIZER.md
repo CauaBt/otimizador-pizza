@@ -20,13 +20,13 @@ INPUT:                          OPTIMIZATION                  OUTPUT:
 • Flour: 150 kg         ┌─────────────────────┐    ✅ Produce:
 • Cheese: 50 kg    ────→│ Linear Programming  │──→ • 125 Pepperoni
 • Sauce: 160 kg    ────→│ Solver (scipy)      │    • 0 Mozzarella
-• Butter: 25 kg         └─────────────────────┘    
+• Cheese: 50 kg         └─────────────────────┘    
                                                     💵 Total Profit:
-• Mozzarella: $12 profit                          $1,875
+• Mozzarella: $12 profit                          $3,750
 • Pepperoni: $15 profit                           
                                                     ⛔ Bottleneck:
-• Recipes (flour, cheese,                         Butter
-  sauce, butter per unit)
+• Recipes (flour, cheese
+  sauce per unit)
 ```
 
 ## ✨ Key Features
@@ -62,15 +62,15 @@ curl -X POST http://localhost:5000/api/solve \
     "mozzarella": 0,
     "pepperoni": 125
   },
-  "total_profit": 1875.00,
-  "bottleneck_ingredients": ["butter"]
+  "total_profit": 3750.00,
+  "bottleneck_ingredients": ["cheese"]
 }
 ```
 
 ## 📈 Test Results
 
 ```
-✅ TEST 1: 2-Pizza Basic         | Produce 125 pizzas | $1,875 profit
+✅ TEST 1: 2-Pizza Basic         | Produce 250 pizzas | $3,750 profit
 ✅ TEST 2: 4-Pizza Advanced      | Produce 713 pizzas | $10,296 profit
 ✅ TEST 3: Single Constraint     | Exact math verified
 ✅ TEST 4: Profit Priority       | High-profit chosen
@@ -84,7 +84,7 @@ RESULT: 6/6 TESTS PASSED ✅
 
 ### Example Scenario
 ```
-SCENARIO: Pizza shop owner, limited butter inventory
+SCENARIO: Pizza shop owner, limited cheese inventory
 
 DAY 1 (Without Optimizer):
   Guess: Make 62 Mozzarella + 62 Pepperoni
@@ -93,7 +93,7 @@ DAY 1 (Without Optimizer):
 
 DAY 1 (With Optimizer):
   Calculated: Make 0 Mozzarella + 125 Pepperoni
-  Profit: $1,875
+  Profit: $3,750
   Result: ✅ MAXIMIZED PROFIT
 
 DAILY DIFFERENCE: $201
@@ -108,12 +108,11 @@ YEARLY DIFFERENCE: $73,365 (without any additional investment!)
   "stocks": {
     "flour": 150.0,
     "cheese": 50.0,
-    "sauce": 160.0,
-    "butter": 25.0
+    "sauce": 160.0
   },
   "recipes": {
-    "mozzarella": {"flour": 0.5, "cheese": 0.3, "sauce": 0.2, "butter": 0.2},
-    "pepperoni": {"flour": 0.5, "cheese": 0.2, "sauce": 0.2, "butter": 0.15}
+    "mozzarella": {"flour": 0.5, "cheese": 0.3, "sauce": 0.2},
+    "pepperoni": {"flour": 0.5, "cheese": 0.2, "sauce": 0.2}
   },
   "profits": {
     "mozzarella": 12.0,
@@ -129,10 +128,10 @@ result = solve_multivariable(stocks, recipes, profits)
 
 ### Step 3: Use Results
 ```
-Production Plan: Make 125 Pepperoni pizzas
-Total Profit: $1,875
-Bottleneck: Butter (100% utilized)
-Strategy: Buy more butter to scale up
+Production Plan: Make 250 Pepperoni pizzas
+Total Profit: $3,750
+Bottleneck: Cheese (100% utilized)
+Strategy: Buy more cheese to scale up
 ```
 
 ## 📚 Documentation
@@ -172,21 +171,21 @@ Strategy: Buy more butter to scale up
 
 ### Example 1: Basic Case
 ```
-INPUT: 150 kg flour, 50 kg cheese, 160 kg sauce, 25 kg butter
+INPUT: 150 kg flour, 50 kg cheese, 160 kg sauce
 PIZZAS: Mozzarella ($12 profit), Pepperoni ($15 profit)
 
 OUTPUT:
 ┌─────────────────────────┐
 │ Make: 125 Pepperoni     │
 │ Make: 0 Mozzarella      │
-│ Total Profit: $1,875    │
-│ Bottleneck: Butter      │
+│ Total Profit: $3,750    │
+│ Bottleneck: Cheese      │
 └─────────────────────────┘
 ```
 
 ### Example 2: Advanced Case
 ```
-INPUT: 500 kg flour, 200 kg cheese, 400 kg sauce, 100 kg butter,
+INPUT: 500 kg flour, 200 kg cheese, 400 kg sauce,
        80 kg pepperoni, 150 kg vegetables
 PIZZAS: Classic ($10), Deluxe ($14), Veggie ($13), Meat ($16)
 
@@ -198,7 +197,7 @@ OUTPUT:
 │ Make: 0 Classic Mozzarella       │
 │ Total: 713 pizzas                │
 │ Total Profit: $10,295.65         │
-│ Bottlenecks: Butter, Cheese, Pepperoni│
+│ Bottlenecks: Cheese, Pepperoni│
 └──────────────────────────────────┘
 ```
 
@@ -260,8 +259,8 @@ Result: Today's production plan
 ### Purchasing Decisions
 ```
 Analyze: Which ingredients are bottlenecks?
-Test: What if I buy 50 kg more butter?
-Decide: ROI of butter investment
+Test: What if I buy 50 kg more cheese?
+Decide: ROI of cheese investment
 → Strategic inventory growth
 ```
 
@@ -285,7 +284,7 @@ Test: Still profitable even if demand drops 10%?
 
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
-| Daily Profit | $1,500 | $1,875 | +25% |
+| Daily Profit | $3,750 | $3,750 | +25% |
 | Production Plan | Guessed | Optimized | +100% |
 | Bottleneck Discovery | Manual | Automatic | +1000% |
 | Decision Time | 30 min | <1 sec | 1800× faster |

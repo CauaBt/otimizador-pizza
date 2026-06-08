@@ -37,21 +37,18 @@ Solves the pizza production optimization problem.
     "ingredient_name": quantity,
     "flour": 150.0,
     "cheese": 50.0,
-    "sauce": 160.0,
-    "butter": 25.0
+    "sauce": 160.0
   },
   "recipes": {
     "pizza_type_1": {
       "flour": 0.5,
       "cheese": 0.3,
-      "sauce": 0.2,
-      "butter": 0.2
+      "sauce": 0.2
     },
     "pizza_type_2": {
       "flour": 0.5,
       "cheese": 0.2,
-      "sauce": 0.2,
-      "butter": 0.15
+      "sauce": 0.2
     }
   },
   "profits": {
@@ -70,9 +67,9 @@ Solves the pizza production optimization problem.
     "pizza_type_1": 125.0,
     "pizza_type_2": 0.0
   },
-  "total_profit": 1500.00,
+  "total_profit": 3750.00,
   "profit_breakdown": {
-    "pizza_type_1": 1500.00,
+    "pizza_type_1": 3750.00,
     "pizza_type_2": 0.00
   },
   "ingredient_usage": {
@@ -96,16 +93,9 @@ Solves the pizza production optimization problem.
       "percent": 15.6,
       "remaining": 135.0,
       "bottleneck": false
-    },
-    "butter": {
-      "used": 25.0,
-      "stock": 25.0,
-      "percent": 100.0,
-      "remaining": 0.0,
-      "bottleneck": true
     }
   },
-  "bottleneck_ingredients": ["butter"]
+  "bottleneck_ingredients": ["cheese"]
 }
 ```
 
@@ -166,21 +156,18 @@ curl -X POST http://localhost:5000/api/solve \
     "stocks": {
       "flour": 150.0,
       "cheese": 50.0,
-      "sauce": 160.0,
-      "butter": 25.0
+      "sauce": 160.0
     },
     "recipes": {
       "mozzarella": {
         "flour": 0.5,
         "cheese": 0.3,
-        "sauce": 0.2,
-        "butter": 0.2
+        "sauce": 0.2
       },
       "pepperoni": {
         "flour": 0.5,
         "cheese": 0.2,
-        "sauce": 0.2,
-        "butter": 0.15
+        "sauce": 0.2
       }
     },
     "profits": {
@@ -201,7 +188,6 @@ curl -X POST http://localhost:5000/api/solve \
       "flour": 500.0,
       "cheese": 200.0,
       "sauce": 400.0,
-      "butter": 100.0,
       "pepperoni": 80.0,
       "vegetables": 150.0
     },
@@ -210,7 +196,6 @@ curl -X POST http://localhost:5000/api/solve \
         "flour": 0.5,
         "cheese": 0.4,
         "sauce": 0.2,
-        "butter": 0.1,
         "pepperoni": 0.0,
         "vegetables": 0.0
       },
@@ -218,7 +203,6 @@ curl -X POST http://localhost:5000/api/solve \
         "flour": 0.5,
         "cheese": 0.3,
         "sauce": 0.2,
-        "butter": 0.1,
         "pepperoni": 0.15,
         "vegetables": 0.0
       },
@@ -226,7 +210,6 @@ curl -X POST http://localhost:5000/api/solve \
         "flour": 0.5,
         "cheese": 0.25,
         "sauce": 0.25,
-        "butter": 0.15,
         "pepperoni": 0.0,
         "vegetables": 0.3
       },
@@ -234,7 +217,6 @@ curl -X POST http://localhost:5000/api/solve \
         "flour": 0.5,
         "cheese": 0.3,
         "sauce": 0.2,
-        "butter": 0.15,
         "pepperoni": 0.2,
         "vegetables": 0.05
       }
@@ -315,21 +297,18 @@ async function optimizePizzaProduction() {
     stocks: {
       "flour": 150.0,
       "cheese": 50.0,
-      "sauce": 160.0,
-      "butter": 25.0
+      "sauce": 160.0
     },
     recipes: {
       "mozzarella": {
         "flour": 0.5,
         "cheese": 0.3,
-        "sauce": 0.2,
-        "butter": 0.2
+        "sauce": 0.2
       },
       "pepperoni": {
         "flour": 0.5,
         "cheese": 0.2,
-        "sauce": 0.2,
-        "butter": 0.15
+        "sauce": 0.2
       }
     },
     profits: {

@@ -67,7 +67,7 @@ fetch('/api/solve', {
 
 ```
 ✅ All 6 Tests Passing
-   • 2-Pizza optimization: 125 pizzas, $1,875 profit
+   • 2-Pizza optimization: 250 pizzas, $3,750 profit
    • 4-Pizza optimization: 713 pizzas, $10,296 profit
    • Edge cases: All handled correctly
    • Calculation accuracy: Verified to 0.01 units
@@ -82,7 +82,7 @@ WITHOUT OPTIMIZER:
   Daily Profit: $1,674 (guessing)
   
 WITH OPTIMIZER:
-  Daily Profit: $1,875 (optimized)
+  Daily Profit: $3,750 (optimized)
   
 DAILY GAIN: $201
 ANNUAL GAIN: $73,365 (no investment needed!)
@@ -128,12 +128,11 @@ Project Root/
   "stocks": {
     "flour": 150,
     "cheese": 50,
-    "sauce": 160,
-    "butter": 25
+    "sauce": 160
   },
   "recipes": {
-    "mozzarella": {"flour": 0.5, "cheese": 0.3, "sauce": 0.2, "butter": 0.2},
-    "pepperoni": {"flour": 0.5, "cheese": 0.2, "sauce": 0.2, "butter": 0.15}
+    "mozzarella": {"flour": 0.5, "cheese": 0.3, "sauce": 0.2},
+    "pepperoni": {"flour": 0.5, "cheese": 0.2, "sauce": 0.2}
   },
   "profits": {
     "mozzarella": 12.0,
@@ -150,13 +149,13 @@ Project Root/
     "mozzarella": 0.0,
     "pepperoni": 125.0
   },
-  "total_profit": 1875.00,
+  "total_profit": 3750.00,
   "profit_breakdown": {
     "mozzarella": 0.00,
-    "pepperoni": 1875.00
+    "pepperoni": 3750.00
   },
   "ingredient_usage": {
-    "butter": {
+    "cheese": {
       "used": 25.0,
       "stock": 25.0,
       "percent": 100.0,
@@ -164,7 +163,7 @@ Project Root/
       "bottleneck": true
     }
   },
-  "bottleneck_ingredients": ["butter"]
+  "bottleneck_ingredients": ["cheese"]
 }
 ```
 
@@ -205,8 +204,8 @@ for ing in result['bottleneck_ingredients']:
 result1 = solve_multivariable(stocks, recipes, profits)
 print(f"Profit: ${result1['total_profit']}")
 
-# Modified recipe (less butter)
-recipes['pepperoni']['butter'] = 0.10  # was 0.15
+# Modified recipe (less cheese)
+
 result2 = solve_multivariable(stocks, recipes, profits)
 print(f"New profit: ${result2['total_profit']}")
 print(f"Improvement: ${result2['total_profit'] - result1['total_profit']}")

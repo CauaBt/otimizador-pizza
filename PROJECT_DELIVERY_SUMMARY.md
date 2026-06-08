@@ -116,15 +116,15 @@ Added:
 
 ✅ TEST 1: Basic 2-Pizza Optimization
    Result: PASSED
-   Produced: 125 Pepperoni pizzas
-   Profit: $1,875.00
-   Bottleneck: Butter ✓
+   Produced: 250 Pepperoni pizzas
+   Profit: $3,750.00
+   Bottleneck: Cheese ✓
 
 ✅ TEST 2: Advanced 4-Pizza Optimization
    Result: PASSED
    Total Pizzas: 713
    Profit: $10,295.65
-   Bottlenecks: 3 (Butter, Cheese, Pepperoni) ✓
+   Bottlenecks: Cheese, Pepperoni ✓
 
 ✅ TEST 3: Single Ingredient Constraint
    Result: PASSED
@@ -135,7 +135,7 @@ Added:
 ✅ TEST 4: Profit Maximization Priority
    Result: PASSED
    Chose: Expensive pizza ($15 vs $10)
-   Profit: $1,500 (maximized) ✓
+   Profit: $3,750 (maximized) ✓
 
 ✅ TEST 5: Ingredient Usage Calculation
    Result: PASSED
@@ -230,10 +230,10 @@ Added:
 ### Financial Value
 ```
 Baseline (without optimizer):
-  Average daily profit: $1,500
+  Average daily profit: $3,750
 
 With optimizer:
-  Average daily profit: $1,875
+  Average daily profit: $3,750
   
 Daily Improvement: $375 (+25%)
 Annual Improvement: $136,875

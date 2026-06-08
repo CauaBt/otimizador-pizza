@@ -19,7 +19,6 @@ def example_basic():
         "Flour": 150.0,        # kg
         "Cheese": 50.0,        # kg
         "Sauce": 160.0,        # kg
-        "Butter": 25.0,        # kg
     }
     
     # Pizza recipes (ingredients per unit)
@@ -28,13 +27,11 @@ def example_basic():
             "Flour": 0.5,
             "Cheese": 0.3,
             "Sauce": 0.2,
-            "Butter": 0.2
         },
         "Pepperoni": {
             "Flour": 0.5,
             "Cheese": 0.2,
             "Sauce": 0.2,
-            "Butter": 0.2
         }
     }
     
@@ -101,7 +98,6 @@ def example_advanced():
         "Flour": 500.0,
         "Cheese": 200.0,
         "Sauce": 400.0,
-        "Butter": 100.0,
         "Pepperoni": 80.0,
         "Vegetables": 150.0,
     }
@@ -112,7 +108,6 @@ def example_advanced():
             "Flour": 0.5,
             "Cheese": 0.4,
             "Sauce": 0.2,
-            "Butter": 0.1,
             "Pepperoni": 0.0,
             "Vegetables": 0.0,
         },
@@ -120,7 +115,6 @@ def example_advanced():
             "Flour": 0.5,
             "Cheese": 0.3,
             "Sauce": 0.2,
-            "Butter": 0.1,
             "Pepperoni": 0.15,
             "Vegetables": 0.0,
         },
@@ -128,7 +122,6 @@ def example_advanced():
             "Flour": 0.5,
             "Cheese": 0.25,
             "Sauce": 0.25,
-            "Butter": 0.15,
             "Pepperoni": 0.0,
             "Vegetables": 0.3,
         },
@@ -136,7 +129,6 @@ def example_advanced():
             "Flour": 0.5,
             "Cheese": 0.3,
             "Sauce": 0.2,
-            "Butter": 0.15,
             "Pepperoni": 0.2,
             "Vegetables": 0.05,
         }

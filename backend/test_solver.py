@@ -6,7 +6,6 @@ class TestPizzaSolver(unittest.TestCase):
         # Default stocks
         self.stocks = {
             'farinha': 150.0,
-            'manteiga': 25.0,
             'queijo': 50.0,
             'molho': 160.0,
             'calabresa': 30.0
@@ -16,14 +15,12 @@ class TestPizzaSolver(unittest.TestCase):
         self.recipes = {
             'pizza1': {
                 'farinha': 0.5,
-                'manteiga': 0.2,
                 'queijo': 0.3,
                 'molho': 0.2,
                 'calabresa': 0.0
             },
             'pizza2': {
                 'farinha': 0.5,
-                'manteiga': 0.2,
                 'queijo': 0.2,
                 'molho': 0.2,
                 'calabresa': 0.15
@@ -36,25 +33,26 @@ class TestPizzaSolver(unittest.TestCase):
             'pizza2': 15.0
         }
 
-    def test_case_1_butter_bottleneck(self):
-        # Stocks: Farinha=150, Manteiga=25, Queijo=50, Molho=160
-        # Recipe Pizza 1: Farinha=0.5, Manteiga=0.2, Queijo=0.3, Molho=0.2
-        # Expected max production: 25 / 0.2 = 125 pizzas
-        res = solve_1d(self.stocks, self.recipes['pizza1'], self.profits['pizza1'])
+    def test_case_1_queijo_bottleneck(self):
+        # Stocks: Farinha=150, Queijo=45, Molho=160
+        # Recipe Pizza 1: Farinha=0.5, Queijo=0.3, Molho=0.2
+        # Expected max production: 45 / 0.3 = 150 pizzas
+        stocks = self.stocks.copy()
+        stocks['queijo'] = 45.0
+        res = solve_1d(stocks, self.recipes['pizza1'], self.profits['pizza1'])
         
         self.assertTrue(res['success'])
-        self.assertEqual(res['optimal_x1'], 125.0)
-        self.assertEqual(res['total_profit'], 125.0 * 12.0)
-        self.assertTrue(res['usage']['manteiga']['bottleneck'])
-        self.assertEqual(res['usage']['manteiga']['percent'], 100.0)
+        self.assertEqual(res['optimal_x1'], 150.0)
+        self.assertEqual(res['total_profit'], 150.0 * 12.0)
+        self.assertTrue(res['usage']['queijo']['bottleneck'])
+        self.assertEqual(res['usage']['queijo']['percent'], 100.0)
         # Verify other usages are less than 100%
         self.assertFalse(res['usage']['farinha']['bottleneck'])
         self.assertLess(res['usage']['farinha']['percent'], 100.0)
 
     def test_case_2_flour_bottleneck(self):
-        # Manteiga rises to 40, Farinha is set to 75 (so 75 / 0.5 = 150 pizzas)
+        # Queijo rises to 50, Farinha is set to 75 (so 75 / 0.5 = 150 pizzas)
         stocks_case2 = self.stocks.copy()
-        stocks_case2['manteiga'] = 40.0
         stocks_case2['farinha'] = 75.0
         
         res = solve_1d(stocks_case2, self.recipes['pizza1'], self.profits['pizza1'])
@@ -64,9 +62,9 @@ class TestPizzaSolver(unittest.TestCase):
         self.assertEqual(res['total_profit'], 150.0 * 12.0)
         self.assertTrue(res['usage']['farinha']['bottleneck'])
         self.assertEqual(res['usage']['farinha']['percent'], 100.0)
-        # Verify butter usage is not bottleneck anymore (uses 150 * 0.2 = 30kg, which is 75% of 40kg)
-        self.assertFalse(res['usage']['manteiga']['bottleneck'])
-        self.assertEqual(res['usage']['manteiga']['percent'], 75.0)
+        # Verify queijo usage is not bottleneck anymore (uses 150 * 0.3 = 45kg, which is 90% of 50kg)
+        self.assertFalse(res['usage']['queijo']['bottleneck'])
+        self.assertEqual(res['usage']['queijo']['percent'], 90.0)
 
     def test_case_3_mix_optimization(self):
         # Verify the 2D LP solver runs and yields valid vertices and optimal mix
@@ -85,16 +83,16 @@ class TestPizzaSolver(unittest.TestCase):
             self.assertLessEqual(used, stock + 1e-4)
 
     def test_case_4_calabresa_1d_optimization(self):
-        # Recipe Pizza 2: Farinha=0.5, Manteiga=0.2, Queijo=0.2, Molho=0.2, Calabresa=0.15
-        # Expected max production: 25 / 0.2 = 125 pizzas (Manteiga limit)
+        # Recipe Pizza 2: Farinha=0.5, Queijo=0.2, Molho=0.2, Calabresa=0.15
+        # Expected max production: 30 / 0.15 = 200 pizzas (Calabresa limit)
         res = solve_1d(self.stocks, self.recipes['pizza2'], self.profits['pizza2'], pizza_var='x2')
         
         self.assertTrue(res['success'])
         self.assertEqual(res['optimal_x1'], 0.0)
-        self.assertEqual(res['optimal_x2'], 125.0)
-        self.assertEqual(res['total_profit'], 125.0 * 15.0)
-        self.assertTrue(res['usage']['manteiga']['bottleneck'])
-        self.assertEqual(res['usage']['manteiga']['percent'], 100.0)
+        self.assertEqual(res['optimal_x2'], 200.0)
+        self.assertEqual(res['total_profit'], 200.0 * 15.0)
+        self.assertTrue(res['usage']['calabresa']['bottleneck'])
+        self.assertEqual(res['usage']['calabresa']['percent'], 100.0)
 
     def test_case_5_multivariable_solver_floors_fractional_optimal_quantities(self):
         stocks = {'farinha': 1.0}

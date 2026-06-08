@@ -34,13 +34,11 @@ Receitas padrão:
    - 0.5 kg de Farinha
    - 0.3 kg de Queijo
    - 0.2 kg de Molho
-   - 0.2 kg de Manteiga (para untar a forma, regulando o teste do gargalo)
 2. **Calabresa ($x_2$):**
    - 0.5 kg de Farinha
    - 0.2 kg de Queijo
    - 0.2 kg de Molho
    - 0.15 kg de Calabresa
-   - 0.2 kg de Manteiga (para untar)
 
 ---
 
@@ -65,12 +63,12 @@ Para executar este projeto no Windows, basta ter **Python 3** e **Node.js** inst
 
 ## 🧪 Casos de Validação
 
-Você pode testar a consistência do algoritmo usando o painel **"Cenários de Validação Rápida"** diretamente no dashboard:
+Você pode testar a consistência do algoritmo usando o painel de configuração diretamente no dashboard:
 
-1. **Cenário 1: Gargalo de Manteiga**
-   - **Configuração:** Estoques: Farinha = 150 kg, Manteiga = 25 kg, Queijo = 50 kg, Molho = 160 kg.
-   - **Resultado Esperado:** Otimização indica produção de exatamente **125 pizzas** de Muçarela (Modo 1), apontando a **Manteiga** como gargalo (100% de uso).
+1. **Cenário 1: Gargalo de Queijo**
+   - **Configuração:** Estoques: Farinha = 150 kg, Queijo = 45 kg, Molho = 160 kg.
+   - **Resultado Esperado:** Otimização indica produção de exatamente **150 pizzas** de Muçarela (Modo 1), apontando o **Queijo** como gargalo (100% de uso).
 
 2. **Cenário 2: Gargalo de Farinha**
-   - **Configuração:** Manteiga sobe para 40 kg, Farinha em 75 kg (mantendo os demais estoques).
-   - **Resultado Esperado:** Otimização sobe para exatamente **150 pizzas** de Muçarela (Modo 1), apontando a **Farinha** como novo gargalo (100% de uso, com Manteiga caindo para 75% de uso).
+   - **Configuração:** Queijo sobe para 50 kg, Farinha cai para 75 kg (mantendo os demais estoques).
+   - **Resultado Esperado:** Otimização permanece em exatamente **150 pizzas** de Muçarela (Modo 1), apontando a **Farinha** como novo gargalo (100% de uso, com Queijo caindo para 90% de uso).

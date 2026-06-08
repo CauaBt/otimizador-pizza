@@ -16,7 +16,6 @@ def test_basic_two_pizza():
         "flour": 150.0,
         "cheese": 50.0,
         "sauce": 160.0,
-        "butter": 25.0,
     }
     
     recipes = {
@@ -24,13 +23,11 @@ def test_basic_two_pizza():
             "flour": 0.5,
             "cheese": 0.3,
             "sauce": 0.2,
-            "butter": 0.2
         },
         "pepperoni": {
             "flour": 0.5,
             "cheese": 0.2,
             "sauce": 0.2,
-            "butter": 0.15
         }
     }
     
@@ -67,7 +64,6 @@ def test_four_pizza_advanced():
         "flour": 500.0,
         "cheese": 200.0,
         "sauce": 400.0,
-        "butter": 100.0,
         "pepperoni": 80.0,
         "vegetables": 150.0,
     }
@@ -77,7 +73,6 @@ def test_four_pizza_advanced():
             "flour": 0.5,
             "cheese": 0.4,
             "sauce": 0.2,
-            "butter": 0.1,
             "pepperoni": 0.0,
             "vegetables": 0.0,
         },
@@ -85,7 +80,6 @@ def test_four_pizza_advanced():
             "flour": 0.5,
             "cheese": 0.3,
             "sauce": 0.2,
-            "butter": 0.1,
             "pepperoni": 0.15,
             "vegetables": 0.0,
         },
@@ -93,7 +87,6 @@ def test_four_pizza_advanced():
             "flour": 0.5,
             "cheese": 0.25,
             "sauce": 0.25,
-            "butter": 0.15,
             "pepperoni": 0.0,
             "vegetables": 0.3,
         },
@@ -101,7 +94,6 @@ def test_four_pizza_advanced():
             "flour": 0.5,
             "cheese": 0.3,
             "sauce": 0.2,
-            "butter": 0.15,
             "pepperoni": 0.2,
             "vegetables": 0.05,
         }

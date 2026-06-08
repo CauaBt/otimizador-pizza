@@ -11,9 +11,9 @@ The pizza production optimization engine is fully implemented, tested, and ready
 All 6 core tests **PASSED**:
 
 ### ✅ TEST 1: Basic 2-Pizza Optimization
-- **Scenario:** Mozzarella vs Pepperoni with limited butter inventory
-- **Result:** Produce **125 Pepperoni pizzas** for $1,875 total profit
-- **Bottleneck:** Butter (100% utilized)
+- **Scenario:** Mozzarella vs Pepperoni with limited cheese inventory
+- **Result:** Produce **250 Pepperoni pizzas** for $3,750 total profit
+- **Bottleneck:** cheese (100% utilized)
 
 ### ✅ TEST 2: Advanced 4-Pizza Optimization  
 - **Scenario:** 4 pizza types with 6 ingredients
@@ -22,7 +22,7 @@ All 6 core tests **PASSED**:
   - Veggie Supreme: 278 pizzas
   - Pepperoni Deluxe: 139 pizzas
   - Classic Mozzarella: 0 pizzas (lowest profit)
-- **Bottlenecks:** Butter, Cheese, Pepperoni (all at 100%)
+- **Bottlenecks:** Cheese, Pepperoni (all at 100%)
 
 ### ✅ TEST 3: Single Ingredient Constraint
 - **Scenario:** Simple 1-ingredient, 1-pizza problem
@@ -32,7 +32,7 @@ All 6 core tests **PASSED**:
 ### ✅ TEST 4: Profit Maximization Priority
 - **Scenario:** Two identical pizzas with different profits ($5 vs $15)
 - **Result:** Only produce the **expensive pizza** (100 units)
-- **Profit:** Maximized at $1,500 (vs $500 for cheap pizza)
+- **Profit:** Maximized at $3,750 (vs $500 for cheap pizza)
 
 ### ✅ TEST 5: Ingredient Usage Calculation
 - **Scenario:** Multiple ingredients with fractional consumption
@@ -51,14 +51,14 @@ All 6 core tests **PASSED**:
 ### Example 1: Simple Pizzeria
 ```
 INPUT:
-  Inventory: 150 kg flour, 50 kg cheese, 160 kg sauce, 25 kg butter
+  Inventory: 150 kg flour, 50 kg cheese, 160 kg sauce
   Recipes: Mozzarella (simple), Pepperoni (higher profit)
   Prices: Mozzarella $12, Pepperoni $15
 
 OUTPUT:
-  ✅ Produce: 125 Pepperoni pizzas
-  💵 Total Profit: $1,875.00
-  ⛔ Bottleneck: Butter (buy more butter to scale up!)
+  ✅ Produce: 250 Pepperoni pizzas
+  💵 Total Profit: $3,750.00
+  ⛔ Bottleneck: Cheese (buy more cheese to scale up!)
 ```
 
 ### Example 2: Premium Pizzeria
@@ -75,7 +75,7 @@ OUTPUT:
      - 139 Pepperoni Deluxe ($1,948)
      - 0 Classic Mozzarella (too low profit)
   💵 Total Profit: $10,295.65
-  ⛔ Bottlenecks: Butter, Cheese, Pepperoni
+  ⛔ Bottlenecks: Cheese, Pepperoni
 ```
 
 ---
@@ -153,9 +153,9 @@ curl -X POST http://localhost:5000/api/solve \
 {
   "success": true,
   "production_plan": {"pizza1": 125, "pizza2": 0},
-  "total_profit": 1500.00,
+  "total_profit": 3750.00,
   "ingredient_usage": {...},
-  "bottleneck_ingredients": ["butter"]
+  "bottleneck_ingredients": ["cheese"]
 }
 ```
 
@@ -216,7 +216,7 @@ curl -X POST http://localhost:5000/api/solve \
 - Flour: 500 kg
 - Cheese: 200 kg
 - Sauce: 400 kg
-- Butter: 100 kg
+- Cheese: 100 kg
 - Pepperoni: 80 kg
 - Vegetables: 150 kg
 
@@ -237,10 +237,10 @@ Make:
   • 0 Classic Mozzarella
 
 Total: 713 pizzas → $10,295.65 profit
-Limiting factors: Butter, Cheese, Pepperoni (all fully used)
+Limiting factors: Cheese, Pepperoni (all fully used)
 ```
 
-**Business Insight:** If you buy more butter, cheese, or pepperoni, you can produce more pizzas and make more money!
+**Business Insight:** If you buy more cheese, or pepperoni, you can produce more pizzas and make more money!
 
 ---
 

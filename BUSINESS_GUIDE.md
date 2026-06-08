@@ -21,16 +21,15 @@ Without optimization, you might guess and lose money. **With the optimizer, you 
 Flour:      150 kg
 Cheese:      50 kg  
 Sauce:      160 kg
-Butter:      25 kg
 ```
 
 **What you make:**
 ```
 Mozzarella Pizza: $12 profit
-  Requires: 0.5 kg flour + 0.3 kg cheese + 0.2 kg sauce + 0.2 kg butter
+  Requires: 0.5 kg flour + 0.3 kg cheese + 0.2 kg sauce 
   
 Pepperoni Pizza: $15 profit
-  Requires: 0.5 kg flour + 0.2 kg cheese + 0.2 kg sauce + 0.15 kg butter
+  Requires: 0.5 kg flour + 0.2 kg cheese + 0.2 kg sauce 
 ```
 
 ### 9:30 AM: Run the Optimizer
@@ -41,12 +40,11 @@ Pepperoni Pizza: $15 profit
   "stocks": {
     "flour": 150,
     "cheese": 50,
-    "sauce": 160,
-    "butter": 25
+    "sauce": 160
   },
   "recipes": {
-    "mozzarella": {"flour": 0.5, "cheese": 0.3, "sauce": 0.2, "butter": 0.2},
-    "pepperoni": {"flour": 0.5, "cheese": 0.2, "sauce": 0.2, "butter": 0.15}
+    "mozzarella": {"flour": 0.5, "cheese": 0.3, "sauce": 0.2},
+    "pepperoni": {"flour": 0.5, "cheese": 0.2, "sauce": 0.2}
   },
   "profits": {
     "mozzarella": 12.0,
@@ -60,28 +58,27 @@ Pepperoni Pizza: $15 profit
 **Output from optimizer:**
 ```
 OPTIMAL PRODUCTION PLAN
-├── Make 125 Pepperoni pizzas
+├── Make 250 Pepperoni pizzas
 ├── Make 0 Mozzarella pizzas  
-├── Total Profit: $1,875
-└── Bottleneck: BUTTER (100% used)
+├── Total Profit: $3,750
+└── Bottleneck: CHEESE (100% used)
 
 INGREDIENT USAGE:
-├── Butter: 25 kg / 25 kg (100%) ⚠️ FULL
-├── Cheese: 25 kg / 50 kg (50%) - Still available
-├── Flour: 62.5 kg / 150 kg (42%) - Lots available
-└── Sauce: 25 kg / 160 kg (16%) - Lots available
+├── Cheese: 50 kg / 50 kg (100%) ⚠️ FULL
+├── Flour: 125 kg / 150 kg (83.3%) - Still available
+└── Sauce: 50 kg / 160 kg (31.3%) - Lots available
 ```
 
 ### 10:15 AM: Make Your Decision
 
-**Decision:** Produce **125 Pepperoni pizzas**
+**Decision:** Produce **250 Pepperoni pizzas**
 
 **Why?**
 1. ✅ **Higher profit:** $15/pizza vs $12/pizza = 25% more profit per pizza
-2. ✅ **Uses less butter:** Only 0.15 kg vs 0.2 kg
-3. ✅ **Maximizes total profit:** $1,875 vs $1,500 (if you made Mozzarella instead)
+2. ✅ **Uses less cheese:** Only 0.2 kg vs 0.3 kg
+3. ✅ **Maximizes total profit:** $3,750 vs $2,000 (if you made Mozzarella instead)
 
-**Result:** You make an extra $375 profit just by choosing the right pizza mix!
+**Result:** You make an extra $1,750 profit just by choosing the right pizza mix!
 
 ---
 
@@ -93,41 +90,40 @@ Make 62 Mozzarella pizzas: $744
 Make 62 Pepperoni pizzas:  $930
 ────────────────────────────
 Total Profit: $1,674
-❌ Left money on the table: $201
+❌ Left money on the table: $2,076
 ```
 
 ### Scenario B: With Optimization (Data-Driven)
 ```
 Make 0 Mozzarella pizzas:  $0
-Make 125 Pepperoni pizzas: $1,875
+Make 250 Pepperoni pizzas: $3,750
 ───────────────────────────
-Total Profit: $1,875
-✅ Maximized profit: +12% vs guessing!
+Total Profit: $3,750
+✅ Maximized profit: +124% vs guessing!
 ```
 
-**Extra profit today:** $201  
-**Extra profit per year:** $73,365 (365 days × $201)
+**Extra profit today:** $2,076  
+**Extra profit per year:** $757,740 (365 days × $2,076)
 
 ---
 
 ## 🔄 Managing Bottlenecks
 
 ### Day 1 Problem
-**Butter is your bottleneck** (limiting factor)
+**cheese is your bottleneck** (limiting factor)
 
-### Day 1 Solution Option 1: Buy More Butter
+### Day 1 Solution Option 1: Buy More cheese
 ```
-Current inventory:     25 kg butter
-After buying:          50 kg butter
+Current inventory:     50 kg cheese
+After buying:          100 kg cheese
 Potential output:      ~250 pizzas (instead of 125)
 New constraint:        Cheese becomes bottleneck
 ```
 
 ### Day 1 Solution Option 2: Improve Recipe
 ```
-Current Pepperoni:     0.15 kg butter per pizza
-New recipe:            0.10 kg butter per pizza (-33%)
-With 25 kg butter:     ~250 pizzas (instead of 125)
+Current Pepperoni:     0.2 kg cheese per pizza
+
 Same profit margin:    Still $15 per pizza
 ```
 
@@ -135,7 +131,7 @@ Same profit margin:    Still $15 per pizza
 ```
 Current Pepperoni:     $15 profit
 Raise price to:        $18 profit (+20%)
-With 125 pizzas:       $2,250 profit (instead of $1,875)
+With 250 pizzas:       $2,250 profit (instead of $3,750)
 ```
 
 ---
@@ -148,22 +144,22 @@ With 125 pizzas:       $2,250 profit (instead of $1,875)
 ```
 Inventory: Plenty of everything
 Optimizer Result: Make 125 Pepperoni, 0 Mozzarella
-Reason: Pepperoni has higher profit + less butter
-Daily Profit: $1,875
+Reason: Pepperoni has higher profit + uses less cheese
+Daily Profit: $3,750
 ```
 
 **Tuesday:**
 ```
-Inventory: Butter getting low, cheese abundant
+Inventory: Cheese getting low, flour abundant
 Optimizer Result: Make 0 Pepperoni, 125 Mozzarella
-Reason: Mozzarella uses same butter but needs different mix
-Daily Profit: $1,500
+Reason: Mozzarella uses more cheese
+Daily Profit: $3,750
 ```
 
 **Wednesday:**
 ```
 New ingredient shipment arrives!
-Butter: 25 → 100 kg
+Cheese: 50 → 100 kg
 Cheese: Restocked to 50 kg
 Optimizer Result: Make 296 Pepperoni, 0 Mozzarella
 Reason: Now you can make LOTS of high-profit pizzas
@@ -172,8 +168,8 @@ Daily Profit: $4,440
 
 **Weekly Total:**
 ```
-Monday:    $1,875
-Tuesday:   $1,500
+Monday:    $3,750
+Tuesday:   $3,750
 Wednesday: $4,440
 Thursday:  ~$3,500 (optimized each day)
 Friday:    ~$3,500
@@ -185,19 +181,19 @@ WEEK TOTAL: ~$15,815
 
 ## 🎯 Strategic Decisions Using Optimizer
 
-### Decision 1: Should You Buy More Butter?
+### Decision 1: Should You Buy More cheese?
 
-**Cost:** $100 for 50 kg butter  
+**Cost:** $100 for 50 kg cheese  
 **Benefit:** Increase production from 125 to 250 pizzas
 
 ```
 Additional pizzas: 125
-Additional profit: 125 × $15 = $1,875
+Additional profit: 125 × $15 = $3,750
 Cost: $100
 Net gain: $1,775 in just ONE DAY!
 ```
 
-✅ **YES - Buy the butter!**
+✅ **YES - Buy the cheese!**
 
 ### Decision 2: Should You Raise Pizza Prices?
 
@@ -206,8 +202,8 @@ Net gain: $1,775 in just ONE DAY!
 **Question:** Will demand drop?
 
 ```
-If demand stays same (125 pizzas):
-  Current revenue: 125 × $15 = $1,875
+If demand stays same (250 pizzas):
+  Current revenue: 125 × $15 = $3,750
   New revenue:    125 × $18 = $2,250
   Extra profit:   $375 per day = $136,875 per year!
   
@@ -224,12 +220,12 @@ Still profitable even with 10% drop!
 ### Decision 3: Should You Add a Premium Pizza?
 
 **New Pizza:** "Luxury Meat Lovers" - $22 profit  
-**Requirement:** 0.6 kg flour + 0.5 kg cheese + 0.3 kg sauce + 0.2 kg butter + 0.4 kg meats
+**Requirement:** 0.6 kg flour + 0.5 kg cheese + 0.3 kg sauce  + 0.4 kg meats
 
 **Testing with optimizer:**
 ```
 Before:
-  Make 125 Pepperoni pizzas: $1,875 profit
+  Make 250 Pepperoni pizzas: $3,750 profit
   
 After (with new pizza):
   Make 50 Luxury pizzas:     $1,100 profit
@@ -289,7 +285,7 @@ Action: If waste >10%, adjust recipes or reduce orders
 **Metric 3: Bottleneck Changes**
 ```
 Track: What's limiting you each day?
-Pattern: If butter always bottleneck → invest in it
+Pattern: If cheese always bottleneck → invest in it
 Action: Negotiate bulk pricing or find substitute
 ```
 
@@ -334,14 +330,14 @@ Check the daily production plan in the kitchen by 10 AM!"
 ═══════════════════════════════════════════
 
 MAKE:
-✓ 125 Pepperoni pizzas
+✓ 250 Pepperoni pizzas
 ✗ 0 Mozzarella pizzas
 
-BOTTLENECK: BUTTER
-⚠️  We're using 100% of our butter today!
+BOTTLENECK: CHEESE
+⚠️  We're using 100% of our cheese today!
 → Next shipment arrives Wednesday
 
-PROFIT TODAY: $1,875
+PROFIT TODAY: $3,750
 ```
 
 ---
@@ -353,7 +349,7 @@ PROFIT TODAY: $1,875
 - Missing profit opportunities  
 - Wasting ingredients
 - No strategic direction
-- **Average daily profit: $1,500**
+- **Average daily profit: $3,750**
 
 **After Optimization:**
 - Data-driven decisions
